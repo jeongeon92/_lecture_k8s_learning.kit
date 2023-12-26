@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-# init kubernetes (w/ containerd)
+# init kubernetes (w/ containerd) + # temp: v1.24.x gcr.io not in v1.24.17 only ubuntu issue (kuberentes-version)
 kubeadm init --token 123456.1234567890123456 --token-ttl 0 \
              --pod-network-cidr=172.16.0.0/16 --apiserver-advertise-address=192.168.1.10 \
-             --cri-socket=unix:///run/containerd/containerd.sock
+             --cri-socket=unix:///run/containerd/containerd.sock \
+             --kubernetes-version=$1 
 
 # config for master node only 
 mkdir -p $HOME/.kube

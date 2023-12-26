@@ -1,6 +1,6 @@
 ## kubernetes learning kit / 그림으로 배우는 쿠버네티스
 
-<a href="https://www.inflearn.com/course/쿠버네티스-쉽게시작?inst=cf657a9d">
+<a href="https://www.inflearn.com/course/그림으로-배우는-쿠버네티스?inst=f3d96ed5">
 <img src="https://user-images.githubusercontent.com/29163931/129343011-19787c05-8a78-447b-aa00-c98e21645df0.png" width="400">
 </a>
 
@@ -21,7 +21,8 @@
 - ch9: 효과적인 애플리케이션 구성 및 관리
 
 ### 보강강의 
-- A: 보강 수업 
+- A: 보강 수업(v1.22 - v1.24)
+- B: 보강 수업(v1.27 ~ )
 - X: 쿠버네티스 시험(CKA, CKAD, CKS) 설명 
 
 ***

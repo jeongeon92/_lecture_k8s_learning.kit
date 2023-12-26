@@ -1,2 +1,3 @@
 .vagrant/
 *.exe
+.DS_Store

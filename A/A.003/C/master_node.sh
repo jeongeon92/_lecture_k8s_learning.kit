@@ -28,10 +28,8 @@ kubectl create secret generic -n metallb-system memberlist --from-literal=secret
 # install bash-completion for kubectl 
 yum install bash-completion -y 
 
-# kubectl completion on bash-completion dir
+# kubectl completion on bash-completion dir & alias+
 kubectl completion bash >/etc/bash_completion.d/kubectl
-
-# alias kubectl to k 
 echo 'alias k=kubectl' >> ~/.bashrc
 echo "alias ka='kubectl apply -f'" >> ~/.bashrc
 echo 'complete -F __start_kubectl k' >> ~/.bashrc
@@ -55,11 +53,10 @@ chmod 700 /usr/local/bin/rerepo-k8s-learning.kit
 sh $HOME/_Lecture_k8s_learning.kit/ch9/9.5/kustomize-installer.sh
 sh $HOME/_Lecture_k8s_learning.kit/ch9/9.6/get_helm.sh >/dev/null 2>&1
 
-# helm completion on bash-completion dir and run manually due to hem limitation. 
-cat <<EOF > /tmp/helm_completion.sh
-helm completion bash >/etc/bash_completion.d/helm
-exec bash
-EOF
+# helm completion on bash-completion dir & alias+ 
+helm completion bash > /etc/bash_completion.d/helm
+echo 'alias h=helm' >> ~/.bashrc
+echo 'complete -F __start_helm h' >> ~/.bashrc 
 
 # install nfs-provisioner
 sh $HOME/_Lecture_k8s_learning.kit/ch5/5.6/nfs-exporter.sh dynamic-vol
@@ -72,3 +69,10 @@ cd $HOME/_Lecture_k8s_learning.kit/ch9/9.7/metrics-server/ ; kubectl apply -k .
 # create dev1, dev2 namespaces
 kubectl create ns dev1
 kubectl create ns dev2
+
+# extended k8s certifications all
+git clone https://github.com/yuyicai/update-kube-cert.git /tmp/update-kube-cert
+chmod 755 /tmp/update-kube-cert/update-kubeadm-cert.sh
+/tmp/update-kube-cert/update-kubeadm-cert.sh all
+rm -rf /tmp/update-kube-cert
+
